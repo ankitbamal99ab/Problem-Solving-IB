@@ -1,0 +1,27 @@
+class Main
+{
+    static boolean palindrome(int num)
+    {
+        String str=Integer.toString(num);
+        int start=0;
+        boolean res=true;
+        int end=str.length()-1;
+        while(start<end)
+        {
+            if(str.charAt(start)==str.charAt(end)) {
+                start++;
+                end--;
+            }
+            else
+                {
+                    res=false;
+                    return res;
+                }
+        }
+        return res;
+    }
+    public static void main(String args[])
+    {
+        System.out.println(palindrome(121));
+    }
+}
