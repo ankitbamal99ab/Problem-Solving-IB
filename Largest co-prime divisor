@@ -1,0 +1,23 @@
+public class Solution {
+    static  int  gcd(int A,int B)
+    {
+        if(B==0)
+        return A;
+        else
+        return gcd(B,A%B);
+    }
+    public int cpFact(int A, int B) {
+        int gcd_val=gcd(A,B);
+        if(gcd_val==1)
+        return A;
+        else
+        {
+            while(gcd_val !=1)
+            {
+                A=A/gcd_val;
+                gcd_val=gcd(A,B);
+            }
+            return A;
+        }
+    }
+}
