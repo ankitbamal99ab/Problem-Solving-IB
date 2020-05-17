@@ -1,0 +1,49 @@
+public class Solution {
+    final static int  mod=1000003;
+    
+    
+    public static int fact(int num)
+    {
+        if(num<=1)
+        return 1;
+        return num* (fact(num-1));
+    }
+    
+    
+    public static int freq(String A)
+    {
+        int arr[]=new int[200];
+        for(int i=0;i<A.length();i++)
+        arr[A.charAt(i)-'A']++;
+        
+        int sum=1;
+        for(int i=0;i<arr.length;i++)
+        {
+            if(arr[i]>=1)
+            sum=sum*fact(arr[i]);
+        }
+        return sum%mod;
+    }
+    
+    
+    
+    public int findRank(String A) {
+        int ans=0;
+        int rep=freq(A);
+        for(int i=0;i<A.length();i++)
+        {
+            int count=0;
+            
+            for(int j=i+1;j<A.length();j++)
+            {
+                if(A.charAt(i)>A.charAt(j))
+                {
+                    count++;
+                }
+            }
+            
+            ans = (ans)%mod +  (count*(fact(A.length()-i-1)/rep))%mod;
+        }
+        return (ans+1);
+    }
+}
