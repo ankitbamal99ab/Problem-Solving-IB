@@ -1,0 +1,14 @@
+public class Solution {
+    public int[] wave(int[] A) {
+        
+         Arrays.sort(A);
+        for(int i=0;i<A.length-1;i++)
+        {
+            int temp=A[i];
+            A[i]=A[i+1];
+            A[i+1]=temp;
+            i++;
+        }
+        return A;
+    }
+}
