@@ -1,13 +1,13 @@
 public class Solution {
     public int solve(ArrayList<String> A) 
     {
-        //devanshjsr 
+      
         
         ArrayList<Double> al=new ArrayList<Double>();
         
         for(int i=0;i<A.size();i++)
         {
-            al.add(Double.parseDouble(A.get(i))); //conversion in double
+            al.add(Double.parseDouble(A.get(i)));
         }
         
         Collections.sort(al);  //sorting in ascending order
