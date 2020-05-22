@@ -1,0 +1,59 @@
+public class Solution {
+    public int solve(ArrayList<String> A) 
+    {
+        //devanshjsr 
+        
+        ArrayList<Double> al=new ArrayList<Double>();
+        
+        for(int i=0;i<A.size();i++)
+        {
+            al.add(Double.parseDouble(A.get(i))); //conversion in double
+        }
+        
+        Collections.sort(al);  //sorting in ascending order
+    
+        int i1=0;
+        int i2=0;
+        int i3=0; // to control indexes for three values 
+                  // always keeping the order i1<=i2<=i3
+        
+        while((i3+2)<al.size())
+        {
+            double val=al.get(i1)+al.get(i2+1)+al.get(i3+2); 
+            
+            if(val>1)
+            {
+                if(val<2)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                // main logic part so that we get the minimum increase in our value
+                   if(i3==i2)
+                    {
+                        if(i2==i1)
+                        {
+                            i3++; 
+                        }
+                        else
+                        {
+                            i1++;
+                        }
+                    }
+                    else
+                    {
+                        i2++;
+                    }
+                
+            }
+        }
+        
+        return 0;
+    }
+}
